@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Strategy — Docs Content Strategy</title>
+  <meta name="description" content="Information architecture, audience models, doc type taxonomy, and documentation success metrics.">
+
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('docs-strategy-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ───────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav__inner">
+      <a href="../" class="nav-brand">
+        Sulagna Sasmal<span class="sep">/</span><span class="brand-sub">Docs Content Strategy</span>
+      </a>
+      <div class="nav-right">
+        <a href="../" class="nav-link">Overview</a>
+        <button class="theme-btn" aria-label="Toggle colour theme" onclick="toggleTheme()">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1"     x2="12" y2="3"/>
+            <line x1="12" y1="21"    x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1"  y1="12" x2="3"  y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────── -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../">docs-content-strategy</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">content-strategy</span>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <header class="hero">
+    <span class="hero-eyebrow">Section 02 of 04</span>
+    <h1>Content Strategy</h1>
+    <p class="hero-desc">
+      The strategic layer behind documentation: who you're writing for, how content is
+      structured, what types exist, and how you measure whether it's working.
+    </p>
+  </header>
+
+  <hr class="divider">
+
+  <!-- ── CARDS ─────────────────────────────────────────────── -->
+  <main class="cards-wrap">
+    <p class="section-label">4 documents in this section</p>
+    <div class="card-grid">
+
+      <!-- IA Framework -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+            <polyline points="2 17 12 22 22 17"/>
+            <polyline points="2 12 12 17 22 12"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Information Architecture Framework</div>
+          <p class="card-desc">
+            How to structure documentation for a software product from scratch — navigation hierarchy, content grouping principles, and the decisions you make before writing a single page.
+          </p>
+          <a href="ia-framework.html" class="card-cta">
+            Read framework
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Doc Types -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <rect x="3"  y="3"  width="7" height="7"/>
+            <rect x="14" y="3"  width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/>
+            <rect x="3"  y="14" width="7" height="7"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Doc Types</div>
+          <p class="card-desc">
+            A taxonomy of documentation types — what each is for, when to use it, and how to distinguish concepts, tasks, references, and tutorials in practice.
+          </p>
+          <a href="doc-types.html" class="card-cta">
+            Read taxonomy
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Audience Analysis -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Audience Analysis</div>
+          <p class="card-desc">
+            Every documentation decision depends on knowing who you're writing for. Covers how to build audience profiles and apply them to structure, depth, vocabulary, and tone.
+          </p>
+          <a href="audience-analysis.html" class="card-cta">
+            Read framework
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Documentation Metrics -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="20" x2="18" y2="10"/>
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <line x1="6"  y1="20" x2="6"  y2="14"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Documentation Metrics</div>
+          <p class="card-desc">
+            What to measure, how to collect it, and how to use data to make documentation decisions. You cannot improve what you don't measure.
+          </p>
+          <a href="metrics.html" class="card-cta">
+            Read metrics guide
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="../" class="footer-back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to overview
+      </a>
+      <p class="footer-text">Technical Documentation Content Strategy &amp; Style Guide</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('docs-strategy-theme', next);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audits — Docs Content Strategy</title>
+  <meta name="description" content="Checklists and scorecards for evaluating documentation quality, coverage, and health.">
+
+  <!-- Anti-FOUC: apply saved theme before first paint -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('docs-strategy-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+
+  <link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+  <!-- ── NAVIGATION ───────────────────────────────────────── -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav__inner">
+      <a href="../" class="nav-brand">
+        Sulagna Sasmal<span class="sep">/</span><span class="brand-sub">Docs Content Strategy</span>
+      </a>
+      <div class="nav-right">
+        <a href="../" class="nav-link">Overview</a>
+        <button class="theme-btn" aria-label="Toggle colour theme" onclick="toggleTheme()">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1"     x2="12" y2="3"/>
+            <line x1="12" y1="21"    x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1"  y1="12" x2="3"  y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────── -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../">docs-content-strategy</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-current">audits</span>
+  </nav>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <header class="hero">
+    <span class="hero-eyebrow">Section 04 of 04</span>
+    <h1>Audits</h1>
+    <p class="hero-desc">
+      Tools for evaluating and communicating the health of existing documentation.
+      Run these quarterly for active doc sets, or when taking over a documentation program.
+    </p>
+  </header>
+
+  <hr class="divider">
+
+  <!-- ── CARDS ─────────────────────────────────────────────── -->
+  <main class="cards-wrap">
+    <p class="section-label">2 documents in this section</p>
+    <div class="card-grid">
+
+      <!-- Documentation Audit Checklist -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Documentation Audit Checklist</div>
+          <p class="card-desc">
+            Comprehensive checklist for evaluating the quality and coverage of an existing documentation set. Covers accuracy, completeness, structure, findability, and accessibility. Use it quarterly or when taking over docs.
+          </p>
+          <a href="doc-audit-checklist.html" class="card-cta">
+            Open checklist
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Content Health Scorecard -->
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+          </svg>
+        </div>
+        <div class="card-body">
+          <div class="card-title">Content Health Scorecard</div>
+          <p class="card-desc">
+            Produces a single composite score across five quality dimensions. Designed for communicating documentation health to product managers, engineers, and stakeholders who need a summary view — not the full audit detail.
+          </p>
+          <a href="content-health-scorecard.html" class="card-cta">
+            Open scorecard
+            <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <a href="../" class="footer-back">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Back to overview
+      </a>
+      <p class="footer-text">Technical Documentation Content Strategy &amp; Style Guide</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      var html = document.documentElement;
+      var next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('docs-strategy-theme', next);
+    }
+  </script>
+
+</body>
+</html>

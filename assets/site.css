@@ -1,0 +1,419 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ============================================================
+   DESIGN TOKENS
+   bchiang7/v4 navy + cyan palette · shadcn card structure
+   leerob editorial type scale · magicui radial glow hero
+   ============================================================ */
+
+:root {
+  /* Dark defaults — bchiang7 navy palette */
+  --bg:         #020c1b;
+  --bg-surface: #0a192f;
+  --bg-card:    #112240;
+  --border:     #233554;
+  --text:       #ccd6f6;
+  --bright:     #e6f1ff;
+  --muted:      #8892b0;
+  --faint:      #495670;
+  --accent:     #64ffda;
+  --accent-bg:  rgba(100, 255, 218, 0.07);
+  --nav-bg:     rgba(2, 12, 27, 0.88);
+  --shadow:     0 4px 28px rgba(0, 0, 0, 0.4);
+
+  /* Shared */
+  --r:    8px;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --max:  960px;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+[data-theme="light"] {
+  --bg:         #f8fafc;
+  --bg-surface: #f1f5f9;
+  --bg-card:    #ffffff;
+  --border:     #e2e8f0;
+  --text:       #334155;
+  --bright:     #0f172a;
+  --muted:      #64748b;
+  --faint:      #94a3b8;
+  --accent:     #0284c7;
+  --accent-bg:  rgba(2, 132, 199, 0.07);
+  --nav-bg:     rgba(248, 250, 252, 0.88);
+  --shadow:     0 2px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+a:hover { text-decoration: underline; }
+a:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   NAVIGATION
+   sticky · blur · bchiang7 100px nav rhythm (scaled to 60px)
+   ============================================================ */
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 60px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.site-nav__inner {
+  max-width: var(--max);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bright);
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.nav-brand:hover { color: var(--accent); text-decoration: none; }
+.nav-brand .sep { color: var(--accent); opacity: 0.7; margin: 0 4px; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.nav-link:hover { color: var(--accent); text-decoration: none; }
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.theme-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-bg);
+}
+.theme-btn svg {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+
+.icon-moon { display: block; }
+.icon-sun  { display: none;  }
+[data-theme="light"] .icon-moon { display: none;  }
+[data-theme="light"] .icon-sun  { display: block; }
+
+/* ============================================================
+   BREADCRUMB
+   monospace — leerob code-page aesthetic
+   ============================================================ */
+
+.breadcrumb {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-family: var(--mono);
+  color: var(--muted);
+}
+.breadcrumb a { color: var(--muted); }
+.breadcrumb a:hover { color: var(--accent); text-decoration: none; }
+.bc-sep     { color: var(--faint); user-select: none; }
+.bc-current { color: var(--text); }
+
+/* ============================================================
+   HERO
+   magicui radial glow behind title · bchiang7 clamp type
+   ============================================================ */
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 64px 24px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Radial accent glow — top-right quadrant */
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -60px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at center, var(--accent-bg) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 700;
+  color: var(--bright);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero-desc {
+  font-size: 17px;
+  color: var(--text);
+  max-width: 560px;
+  line-height: 1.65;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.divider {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+/* ============================================================
+   CARD GRID
+   shadcn-ui card proportions · tailwind headlessui spacing
+   ============================================================ */
+
+.cards-wrap {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.card-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--accent-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.card-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--bright);
+  line-height: 1.3;
+}
+
+.card-desc {
+  font-size: 13.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  margin-top: 4px;
+  transition: gap 0.15s;
+}
+.card-cta:hover { gap: 9px; text-decoration: none; }
+.card-cta svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.15s;
+}
+.card-cta:hover svg { transform: translateX(2px); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 28px 24px;
+}
+.site-footer__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  transition: color 0.15s;
+}
+.footer-back:hover { color: var(--accent); text-decoration: none; }
+.footer-back svg {
+  width: 13px;
+  height: 13px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: var(--faint);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 640px) {
+  .hero        { padding: 44px 20px 36px; }
+  .cards-wrap  { padding: 32px 20px 60px; }
+  .breadcrumb  { padding: 16px 20px 0; }
+  .site-nav__inner { padding: 0 16px; }
+  .site-footer { padding: 24px 20px; }
+  .nav-brand .brand-sub { display: none; }
+}
